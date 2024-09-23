@@ -1,0 +1,29 @@
+<section class="my-5 lg:my-10 pb-5 flex flex-col items-center justify-center">
+  <form action="/agendar-cita" method="POST" onsubmit="return validateForm()" class="border-2 border-yellow-600 w-80 lg:w-[500px] flex flex-col items-center justify-center p-5 shadow-sm shadow-black">
+      <div class="lg:flex lg:gap-5 w-full">
+          <div class="mb-4 flex items-center gap-2 w-full">
+              <label for="fecha" class="block text-sm lg:text-lg font-medium">Fecha:</label>
+              <input type="date" id="fecha" name="fecha" class="border rounded p-2 w-full" required>
+          </div>
+
+          <div class="mb-4 flex items-center gap-2 w-full">
+              <label for="hora" class="block text-sm lg:text-lg font-medium">Hora:</label>
+              <input type="time" id="hora" name="hora" class="border rounded p-2 w-full" required>
+          </div>
+      </div>
+
+      <div class="mb-4 flex items-center gap-2 w-full">
+          <label for="email" class="block text-sm lg:text-lg font-medium">Correo:</label>
+          <input type="email" id="email" name="email" class="border rounded p-2 w-full" required placeholder="tuemail@ejemplo.com">
+      </div>
+
+      <div class="w-full">
+          <button type="submit" class="bg-orange-400 text-white font-bold uppercase px-4 py-2 border border-white rounded transition duration-300 ease-in-out hover:bg-orange-600 hover:scale-105 w-full">Reservar Turno</button>
+      </div>
+  </form>
+</section>
+<script>
+  function validateForm() {
+
+  }
+</script>

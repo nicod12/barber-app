@@ -1,26 +1,29 @@
----
-import 'leaflet/dist/leaflet.css';
+  <!-- Incluir el CSS de Leaflet desde el CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
 
-const position = [51.505, -0.09]; // Coordenadas del mapa
----
+  <!-- Incluir el JavaScript de Leaflet desde el CDN -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 
-<div id="map" style="height: 400px; width: 100%; border: 1px solid black;"></div>
 
-<script type="module">
-  import L from 'leaflet';
+    <section class="flex flex-col items-center justify-center px-5 lg:px-10 py-5 lg:py-10" >
+   
+    <h1 class="text-center text-[2rem] font-bold uppercase m-5 lg:m-10 ">Ubicación</h1>
+    <div id="map" class="w-full h-96 shadow-black shadow-sm rounded-sm"></div>
 
-  window.onload = () => {
-    // Inicializa el mapa
-    var map = L.map('map').setView(position, 13);
+ </section>
 
-    // Agrega los tiles
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+  <!-- Inicializar Leaflet cuando el DOM esté listo -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Crear el mapa y establecer la vista
+      const map = L.map('map').setView([-36.8927, -60.3225], 17);
 
-    // Agrega un marcador con un popup
-    L.marker(position).addTo(map)
-      .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-      .openPopup();
-  };
-</script>
+      // Añadir una capa de mapa desde OpenStreetMap
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      }).addTo(map);
+
+      // Añadir un marcador
+      const marker = L.marker([-36.8927, -60.3225]).addTo(map);
+      marker.bindPopup('Alsina 2928, Olavarría').openPopup();
+    });
+  </script>
