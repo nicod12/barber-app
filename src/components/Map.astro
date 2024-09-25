@@ -2,19 +2,31 @@
 import L from 'leaflet'; // Importa Leaflet
 ---
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet/dist/leaflet.js" defer></script>
 
-<section class="flex flex-col items-center justify-center px-5 lg:px-10 py-5 lg:py-10">
+
+<section class="flex flex-col items-center justify-center px-10 lg:px-20 py-5 lg:py-10">
     <h1 class="text-center text-[2rem] font-bold uppercase m-5 lg:m-10">Ubicación</h1>
     <div id="map" class="w-full h-96 shadow-black shadow-sm rounded-sm"></div>
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const map = L.map('map').setView([-36.8927, -60.3225], 17);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
-    const marker = L.marker([-36.8927, -60.3225]).addTo(map);
-    marker.bindPopup('Alsina 2928, Olavarría').openPopup();
-  });
+<script type="module">
+  // Establece la vista inicial en las coordenadas de Olavarría
+  const map = L.map('map').setView([-36.8927, -60.3225], 17); // Coordenadas aproximadas de Olavarría, nivel de zoom 17 para mayor detalle
+
+  // Añade la capa de tiles desde OpenStreetMap
+  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a>'
+  }).addTo(map);
+
+  // URL a tu archivo GPX o un string XML con el GPX
+  const url = 'https://mpetazzoni.github.io/leaflet-gpx/demo.gpx';
+  const options = {
+    async: true,
+    polyline_options: { color: 'red' },
+  };
+
+  // Carga el GPX y ajusta los límites del mapa una vez que los datos están cargados
+  const gpx = new L.GPX(url, options).on('loaded', (e) => {
+    map.fitBounds(e.target.getBounds());
+  }).addTo(map);
 </script>
