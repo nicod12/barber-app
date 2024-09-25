@@ -11,22 +11,14 @@ import L from 'leaflet'; // Importa Leaflet
 
 <script type="module">
   // Establece la vista inicial en las coordenadas de Olavarría
-  const map = L.map('map').setView([-36.8927, -60.3225], 17); // Coordenadas aproximadas de Olavarría, nivel de zoom 17 para mayor detalle
+ const map = L.map('map').setView([-36.8927, -60.3225], 17);
 
-  // Añade la capa de tiles desde OpenStreetMap
-  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a>'
-  }).addTo(map);
+      // Añadir una capa de mapa desde OpenStreetMap
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
 
-  // URL a tu archivo GPX o un string XML con el GPX
-  const url = 'https://mpetazzoni.github.io/leaflet-gpx/demo.gpx';
-  const options = {
-    async: true,
-    polyline_options: { color: 'red' },
-  };
-
-  // Carga el GPX y ajusta los límites del mapa una vez que los datos están cargados
-  const gpx = new L.GPX(url, options).on('loaded', (e) => {
-    map.fitBounds(e.target.getBounds());
-  }).addTo(map);
+      // Añadir un marcador
+      const marker = L.marker([-36.8927, -60.3225]).addTo(map);
+      marker.bindPopup('Alsina 2928, Olavarría').openPopup();
 </script>
