@@ -1,8 +1,8 @@
-<section class="my-5 lg:my-10 pb-5 flex flex-col lg:flex-row items-center lg:items-start gap-14 justify-center">
-  <div class="lg:mt-2 ">
-    <p class="max-w-md px-6 text-center text-lg lg:text-start lg:p-2 bebas-neue-regular">¡No dejes tu look al azar! Reserva tu turno fácilmente en línea y asegúrate de recibir la atención que mereces en el momento que más te convenga. En Tulook barber, tu satisfacción es nuestra prioridad. ¡Te esperamos!</p>
+<section class="py-16 md:py-32 flex flex-col lg:flex-row items-center lg:items-start gap-14 justify-center">
+  <div >
+    <p class="max-w-md px-6 md:px-0 text-center text-[1.5rem] lg:text-start lg:p-2 bebas-neue-regular">¡No dejes tu look al azar! Reserva tu turno fácilmente en línea y asegúrate de recibir la atención que mereces en el momento que más te convenga. En Tulook barber, tu satisfacción es nuestra prioridad. ¡Te esperamos!</p>
   </div>
-  <form id="form" action="/agendar-cita" method="POST" class="border-2 border-yellow-600 w-[330px] lg:w-[30rem] flex flex-col items-center justify-center p-5 shadow-sm shadow-black">
+  <form id="form" action="/agendar-cita" method="POST" class="border-2 border-[#C99E10] w-[330px] lg:w-[30rem] flex flex-col items-center justify-center p-5 shadow-sm shadow-black">
       <div class="lg:flex lg:gap-5 w-full">
           <div class="mb-4 flex items-center gap-2 w-full bebas-neue-regular">
               <label for="fecha" class="block text-lg font-medium">Fecha:</label>
@@ -16,12 +16,12 @@
       </div>
 
       <div class="mb-4 flex items-center gap-2 w-full bebas-neue-regular">
-          <label for="email" class="block text-lg font-medium">Correo:</label>
-          <input type="email" id="email" name="email" class="border rounded p-2 w-full" required placeholder="tuemail@ejemplo.com">
+          <label for="numero" class="block text-lg font-medium">Número:</label>
+          <input type="number" id="numero" name="numero" class="border rounded p-2 w-full" required placeholder="2284123456">
       </div>
 
       <div class="w-full">
-          <button type="submit" class="bg-orange-400 text-white font-bold uppercase px-4 py-2 border border-white rounded transition duration-300 ease-in-out hover:bg-orange-600 hover:scale-105 w-full">Reservar Turno</button>
+          <button type="submit" class="bg-[#C99E10] text-white font-bold uppercase px-4 py-2 border border-white rounded transition duration-300 ease-in-out hover:bg-[#A9810D] hover:scale-105 w-full">Reservar Turno</button>
       </div>
   </form>
 </section>
