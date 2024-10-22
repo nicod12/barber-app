@@ -2,8 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'JunigardenSerif';
+  src: url('../fonts/JunigardenSerif.woff') format('woff');
+
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+.junigardenSerif {
+  font-family: 'JunigardenSerif', sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 
 .bebas-neue-regular {
